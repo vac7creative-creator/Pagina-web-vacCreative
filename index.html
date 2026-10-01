@@ -1,13 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>V.A.C. Creative | Diseño, Audiovisual y Experiencias Digitales</title>
+    <meta name="title" content="V.A.C. Creative | Diseño, Audiovisual y Experiencias Digitales" />
+    <meta
+      name="description"
+      content="V.A.C. Creative es un estudio creativo multidisciplinario especializado en diseño gráfico, producción audiovisual, animación publicitaria y desarrollo de experiencias web interactivas."
+    />
+    <meta name="author" content="V.A.C. Creative" />
+    <meta name="theme-color" content="#0F172A" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vaccreative.com/" />
+    <meta property="og:title" content="V.A.C. Creative | Diseño, Audiovisual y Experiencias Digitales" />
+    <meta
+      property="og:description"
+      content="Estudio creativo de identidad visual, narrativa audiovisual y soluciones interactivas diseñadas para elevar la presencia de marcas y proyectos contemporáneos."
+    />
+    <meta property="og:image" content="https://res.cloudinary.com/dcnynnstm/image/upload/v1768607132/VAC_Creatuve_LOGO_fzyvbn.png" />
+    <meta property="og:site_name" content="V.A.C. Creative" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="V.A.C. Creative | Diseño, Audiovisual y Experiencias Digitales" />
+    <meta
+      property="twitter:description"
+      content="Estudio creativo de identidad visual, narrativa audiovisual y soluciones interactivas diseñadas para marcas contemporáneas."
+    />
+    <meta property="twitter:image" content="https://res.cloudinary.com/dcnynnstm/image/upload/v1768607132/VAC_Creatuve_LOGO_fzyvbn.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dcnynnstm/image/upload/v1768607132/VAC_Creatuve_LOGO_fzyvbn.png" />
+
+    <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Modern Geometric Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "V.A.C. Creative",
+      "image": "https://res.cloudinary.com/dcnynnstm/image/upload/v1768607132/VAC_Creatuve_LOGO_fzyvbn.png",
+      "description": "Estudio creativo multidisciplinario en diseño gráfico, producción audiovisual, animación y desarrollo de experiencias web.",
+      "telephone": ["+51932350348", "+51917420348"],
+      "email": "vac7creative@gmail.com",
+      "url": "https://vaccreative.com/",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/VAC.Creativ",
+        "https://tiktok.com/@vaccreative",
+        "https://youtube.com/@V.A.C.Creative"
+      ]
+    }
+    </script>
   </head>
-  <body>
+  <body class="bg-canvas-light text-ink-light dark:bg-canvas-dark dark:text-ink-dark transition-colors duration-300 antialiased selection:bg-sky-500/20 selection:text-sky-900 dark:selection:text-sky-200">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
