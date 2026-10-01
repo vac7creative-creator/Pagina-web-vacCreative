@@ -31,8 +31,8 @@ export const ProjectsPage: React.FC = () => {
             className="mb-0"
           />
 
-          {/* Dynamic interactive filter tabs: only rendered if more than 1 filter category exists */}
-          {availableFilters.length > 0 && (
+          {/* Dynamic interactive filter tabs: only rendered if 2 or more distinct categories have projects */}
+          {availableFilters.length > 1 && (
             <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 self-start md:self-end">
               <button
                 type="button"

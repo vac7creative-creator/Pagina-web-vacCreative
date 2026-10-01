@@ -134,6 +134,7 @@ export const Header: React.FC = () => {
             <nav className="flex flex-col space-y-4">
               <Link
                 href="/"
+                onClick={() => setMobileMenuOpen(false)}
                 className="text-lg font-medium text-neutral-800 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-400 py-1"
               >
                 Inicio
@@ -142,6 +143,7 @@ export const Header: React.FC = () => {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
                   className="text-lg font-medium text-neutral-800 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-400 py-1"
                 >
                   {link.label}
