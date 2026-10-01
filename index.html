@@ -64,6 +64,22 @@
       ]
     }
     </script>
+    <!-- Immediate Theme Initialization to avoid flash -->
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('vac_theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body class="bg-canvas-light text-ink-light dark:bg-canvas-dark dark:text-ink-dark transition-colors duration-300 antialiased selection:bg-sky-500/20 selection:text-sky-900 dark:selection:text-sky-200">
     <div id="root"></div>

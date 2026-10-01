@@ -33,7 +33,7 @@ export const AboutPage: React.FC = () => {
           <div className="md:col-span-7">
             <div className="rounded-2xl overflow-hidden border border-neutral-200/90 dark:border-white/10 shadow-lg">
               <img
-                src="/src/assets/images/editorial_studio_hero_1790817276666.jpg"
+                src="/images/editorial_studio_hero_1790817276666.jpg"
                 alt="V.A.C. Creative Studio Interior"
                 className="w-full aspect-[16/10] object-cover"
               />

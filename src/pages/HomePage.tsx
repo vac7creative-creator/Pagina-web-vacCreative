@@ -3,14 +3,16 @@ import { ArrowUpRight, MessageCircle, Phone, Mail, Sparkles, CheckCircle2 } from
 import { Container } from '../components/Container';
 import { SectionHeader } from '../components/SectionHeader';
 import { ServiceCategoryCard } from '../components/ServiceCategoryCard';
-import { ProjectCard } from '../components/ProjectCard';
+import { PortfolioCard } from '../components/portfolio/PortfolioCard';
 import { Button } from '../components/Button';
 import { SERVICES_DATA } from '../data/services';
-import { FEATURED_PROJECTS } from '../data/portfolio';
+import { getFeaturedProjects } from '../data/portfolio';
 import { CONTACT_DATA } from '../data/contact';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 
 export const HomePage: React.FC = () => {
+  const featuredProjects = getFeaturedProjects();
+
   return (
     <div className="space-y-24 sm:space-y-32 pb-24">
       {/* HERO SECTION */}
@@ -53,7 +55,7 @@ export const HomePage: React.FC = () => {
               <div className="pt-6 sm:pt-8 border-t border-neutral-200 dark:border-white/10 grid grid-cols-3 gap-6 max-w-lg text-left">
                 <div>
                   <div className="font-mono text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white tabular-nums">
-                    5+
+                    5
                   </div>
                   <div className="text-xs text-neutral-500 font-normal mt-0.5">
                     Disciplinas integradas
@@ -78,11 +80,11 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Hero Visual Asset */}
+            {/* Right Column: Hero Visual Asset using public/ image */}
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden border border-neutral-200/90 dark:border-white/10 shadow-xl bg-neutral-100 dark:bg-neutral-900 group">
                 <img
-                  src="/src/assets/images/editorial_studio_hero_1790817276666.jpg"
+                  src="/images/editorial_studio_hero_1790817276666.jpg"
                   alt="V.A.C. Creative Studio Workstation"
                   className="w-full aspect-[4/5] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
@@ -109,7 +111,7 @@ export const HomePage: React.FC = () => {
               number="01"
               kicker="Ecosistema Creativo"
               title="Disciplinas & Soluciones"
-              description="Nuestros cinco pilares de trabajo abarcan desde la conceptualización de marca hasta la entrega de experiencias digitales interactivas."
+              description="Nuestros cinco pilares abarcan desde la conceptualización de marca hasta la entrega de experiencias interactivas."
               className="mb-0"
             />
             <Button href="/servicios" variant="outline" size="sm" className="self-start md:self-end">
@@ -127,26 +129,26 @@ export const HomePage: React.FC = () => {
         </Container>
       </section>
 
-      {/* SELECTED WORKS / PROYECTOS DESTACADOS */}
+      {/* SELECTED WORKS / TRABAJOS SELECCIONADOS (Real Projects Only, 3-4 items) */}
       <section id="proyectos" className="scroll-mt-24">
         <Container size="wide">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <SectionHeader
               number="02"
               kicker="Portafolio Curado"
-              title="Proyectos Seleccionados"
-              description="Una muestra representativa de encargos realizados en diseño de identidad, narrativa en movimiento y piezas interactivas."
+              title="Trabajos Seleccionados"
+              description="Proyectos interactivos reales diseñados y desplegados por V.A.C. Creative."
               className="mb-0"
             />
             <Button href="/proyectos" variant="outline" size="sm" className="self-start md:self-end">
-              <span>Ver portafolio completo</span>
+              <span>Ver todos los proyectos</span>
               <ArrowUpRight size={14} />
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {FEATURED_PROJECTS.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {featuredProjects.map((project) => (
+              <PortfolioCard key={project.id} project={project} />
             ))}
           </div>
         </Container>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouterProvider, useRouter } from './utils/router';
+import { ThemeProvider } from './hooks/useTheme';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
@@ -84,9 +85,11 @@ const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <RouterProvider>
-      <AppContent />
-    </RouterProvider>
+    <ThemeProvider>
+      <RouterProvider>
+        <AppContent />
+      </RouterProvider>
+    </ThemeProvider>
   );
 };
 

@@ -36,7 +36,7 @@ export const SubServiceCard: React.FC<SubServiceCardProps> = ({ subService, cate
           )}
 
           {/* Top-Right Arrow Indicator */}
-          <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-xs flex items-center justify-center text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+          <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-xs flex items-center justify-center text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
             <ArrowUpRight size={14} />
           </div>
         </div>
@@ -53,7 +53,7 @@ export const SubServiceCard: React.FC<SubServiceCardProps> = ({ subService, cate
 
           {/* Features Preview if available */}
           {subService.features && subService.features.length > 0 && (
-            <ul className="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400 mb-4">
+            <ul className="space-y-1.5 text-xs text-neutral-500 dark:text-neutral-400">
               {subService.features.slice(0, 2).map((feat, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <span className="text-sky-600 dark:text-sky-400 text-sm leading-none font-bold">·</span>
@@ -65,12 +65,10 @@ export const SubServiceCard: React.FC<SubServiceCardProps> = ({ subService, cate
         </div>
       </div>
 
-      {/* Card Footer: Metadata info */}
-      <div className="px-6 pb-5 pt-3 border-t border-neutral-100 dark:border-white/5 flex items-center justify-between text-xs text-neutral-500">
-        <span>Explorar especificaciones</span>
-        <span className="font-medium text-sky-600 dark:text-sky-400 group-hover:translate-x-1 transition-transform">
-          Ver detalle &rarr;
-        </span>
+      {/* Card Footer: Discreet Metadata info with only subtle arrow */}
+      <div className="px-6 pb-5 pt-3 border-t border-neutral-100 dark:border-white/5 flex items-center justify-between text-xs text-neutral-400 dark:text-neutral-500">
+        <span>Especificaciones y portafolio</span>
+        <ArrowUpRight size={14} className="text-neutral-400 dark:text-neutral-500 group-hover:text-sky-600 dark:group-hover:text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
       </div>
     </Link>
   );
