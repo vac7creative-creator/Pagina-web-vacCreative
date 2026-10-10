@@ -3,9 +3,8 @@
  * Base URL: https://gerente-creativo-de-vac.vercel.app/?tab=quote
  *
  * Conecta los botones de "Solicitar Cotización" con el catálogo real
- * de Gerente Creativo (src/data/servicesCatalog.ts), garantizando que al hacer
- * clic se abra la pestaña "Cotizar en Vivo" (?tab=quote) con el servicio,
- * paquete y variante correspondientes exactamente preseleccionados.
+ * de Gerente Creativo, preseleccionando únicamente los parámetros (servicio, paquete,
+ * o variante) explícitamente autorizados por la especificación.
  */
 
 export const GERENTE_CREATIVO_BASE_URL = 'https://gerente-creativo-de-vac.vercel.app/';
@@ -18,26 +17,17 @@ export interface QuoteDeepLinkParams {
 }
 
 /**
- * Tabla de equivalencias entre los slugs/ids de subservicios de V.A.C. Creative
- * y los parámetros reales verificados del catálogo de Gerente Creativo.
+ * Tabla de equivalencias estricta entre slugs/IDs de subservicios de V.A.C. Creative
+ * y los parámetros reales permitidos para Gerente Creativo.
  *
- * Catálogo real en Gerente Creativo:
- * - branding: paquetes [logo, identidad, branding-completo]
- * - artes-multimedia: paquetes [arte-esencial, arte-profesional, arte-premium]
- * - produccion-audiovisual: paquetes [express, completo, premium]
- * - spot-publicitario: variantes [audiovisual, radial, locucion] | paquetes [simple, express, premium]
- * - animacion-motion: paquetes [motion-esencial, motion-profesional, motion-premium]
- * - carta-digital: paquetes [basico, completo, premium]
- * - landing-page: paquetes [esencial, comercial, pro]
- * - boda: paquetes [basico, intermedio, pro]
- * - xv-anos: paquetes [basico, intermedio, pro]
- * - cumpleanos: paquetes [express, interactivo, premium]
- * - otro: paquetes [a-medida]
+ * REGLA: No se preselecciona ningún paquete salvo indicación expresa (logos -> logo, reels -> express).
+ * El cliente elige el paquete dentro del cotizador de Gerente Creativo.
  */
 export const SUB_SERVICE_QUOTE_MAPPING: Record<string, QuoteDeepLinkParams> = {
   // ==========================================
-  // 01. DISEÑO GRÁFICO (diseno-grafico)
+  // 1. DISEÑO GRÁFICO (diseno-grafico)
   // ==========================================
+  // Logos e Identidad (caso explícito con package=logo)
   'logos': {
     service: 'branding',
     package: 'logo',
@@ -46,66 +36,67 @@ export const SUB_SERVICE_QUOTE_MAPPING: Record<string, QuoteDeepLinkParams> = {
     service: 'branding',
     package: 'logo',
   },
+
+  // Flyers y Afiches (sin paquete)
   'flyers': {
     service: 'artes-multimedia',
-    package: 'arte-esencial',
   },
   'dg-flyers': {
     service: 'artes-multimedia',
-    package: 'arte-esencial',
   },
+
+  // Anuarios Escolares (sin paquete)
   'anuarios-escolares': {
     service: 'artes-multimedia',
-    package: 'arte-profesional',
   },
   'dg-anuarios': {
     service: 'artes-multimedia',
-    package: 'arte-profesional',
   },
+
+  // Brochure Corporativo (artes-multimedia, sin paquete)
   'brochure-corporativo': {
-    service: 'branding',
-    package: 'identidad',
+    service: 'artes-multimedia',
   },
   'dg-broucher': {
-    service: 'branding',
-    package: 'identidad',
+    service: 'artes-multimedia',
   },
+
+  // Tarjetas y Etiquetas (artes-multimedia, sin paquete)
   'tarjetas-y-etiquetas': {
-    service: 'branding',
-    package: 'identidad',
+    service: 'artes-multimedia',
   },
   'dg-tarjetas': {
-    service: 'branding',
-    package: 'identidad',
+    service: 'artes-multimedia',
   },
+
+  // Mockups Publicitarios (artes-multimedia, sin paquete)
   'mockups': {
-    service: 'branding',
-    package: 'identidad',
+    service: 'artes-multimedia',
   },
   'dg-mockups': {
-    service: 'branding',
-    package: 'identidad',
+    service: 'artes-multimedia',
   },
+
+  // Banners y Gigantografías (sin paquete)
   'banners': {
     service: 'artes-multimedia',
-    package: 'arte-profesional',
   },
   'dg-banners': {
     service: 'artes-multimedia',
-    package: 'arte-profesional',
   },
 
   // ==========================================
-  // 02. AUDIOVISUAL Y VIDEO (audiovisual)
+  // 2. AUDIOVISUAL Y VIDEO (audiovisual)
   // ==========================================
+  // Edición de Video (sin paquete)
   'edicion-video': {
     service: 'produccion-audiovisual',
-    package: 'completo',
   },
   'av-edicion': {
     service: 'produccion-audiovisual',
-    package: 'completo',
   },
+
+  // Reels y TikTok (caso explícito con package=express)
   'reels-tiktok': {
     service: 'produccion-audiovisual',
     package: 'express',
@@ -114,145 +105,127 @@ export const SUB_SERVICE_QUOTE_MAPPING: Record<string, QuoteDeepLinkParams> = {
     service: 'produccion-audiovisual',
     package: 'express',
   },
+
+  // Videoclips Musicales (sin paquete)
   'videoclips': {
     service: 'produccion-audiovisual',
-    package: 'premium',
   },
   'av-videoclips': {
     service: 'produccion-audiovisual',
-    package: 'premium',
   },
+
+  // Spots Visuales (caso explícito con variant=audiovisual, sin paquete)
   'spots-visuales': {
     service: 'spot-publicitario',
-    package: 'simple',
     variant: 'audiovisual',
   },
   'av-spots': {
     service: 'spot-publicitario',
-    package: 'simple',
     variant: 'audiovisual',
   },
 
   // ==========================================
-  // 03. SPOTS PUBLICITARIOS Y AUDIO (spots-publicitarios)
+  // 3. SPOTS PUBLICITARIOS Y AUDIO (spots-publicitarios)
   // ==========================================
+  // Spots Radiales (caso explícito con variant=radial, sin paquete)
   'spots-radiales': {
     service: 'spot-publicitario',
-    package: 'simple',
     variant: 'radial',
   },
   'sp-radiales': {
     service: 'spot-publicitario',
-    package: 'simple',
     variant: 'radial',
   },
+
+  // Musicalización y Audio Branding (service=otro, sin paquete)
   'musicalizacion': {
-    service: 'spot-publicitario',
-    package: 'simple',
-    variant: 'locucion',
+    service: 'otro',
   },
   'sp-musicalizacion': {
-    service: 'spot-publicitario',
-    package: 'simple',
-    variant: 'locucion',
+    service: 'otro',
   },
 
   // ==========================================
-  // 04. ANIMACIÓN & MOTION (animacion)
+  // 4. ANIMACIÓN & MOTION (animacion)
   // ==========================================
+  // Logos Animados (sin paquete)
   'logos-animados': {
     service: 'animacion-motion',
-    package: 'motion-esencial',
   },
   'am-logos': {
     service: 'animacion-motion',
-    package: 'motion-esencial',
   },
+
+  // Intros y Openers (sin paquete)
   'intros': {
     service: 'animacion-motion',
-    package: 'motion-profesional',
   },
   'am-intros': {
     service: 'animacion-motion',
-    package: 'motion-profesional',
   },
+
+  // Animación 2D / 3D (sin paquete)
   '2d-a-3d': {
     service: 'animacion-motion',
-    package: 'motion-premium',
   },
   'am-2d3d': {
     service: 'animacion-motion',
-    package: 'motion-premium',
   },
 
   // ==========================================
-  // 05. EXPERIENCIAS WEB & DIGITAL (diseno-digital)
+  // 5. DISEÑO DIGITAL & EXPERIENCIAS WEB (diseno-digital)
   // ==========================================
-  'catalogos-virtuales': {
-    service: 'carta-digital',
-    package: 'completo',
-  },
-  'catalogos': {
-    service: 'carta-digital',
-    package: 'completo',
-  },
-  'invitaciones-digitales': {
-    service: 'boda',
-    package: 'intermedio',
-  },
-  'invitaciones': {
-    service: 'boda',
-    package: 'intermedio',
-  },
-  'invitacion-boda': {
-    service: 'boda',
-    package: 'intermedio',
-  },
-  'invitacion-xv': {
-    service: 'xv-anos',
-    package: 'intermedio',
-  },
-  'invitacion-cumpleanos': {
-    service: 'cumpleanos',
-    package: 'interactivo',
-  },
+  // Landing Pages (sin paquete)
   'landing-pages': {
     service: 'landing-page',
-    package: 'esencial',
   },
+
+  // Menús Digitales QR (sin paquete)
   'menus-digitales': {
     service: 'carta-digital',
-    package: 'basico',
   },
   'menus': {
     service: 'carta-digital',
-    package: 'basico',
   },
+
+  // Catálogos Virtuales (service=otro, sin paquete)
+  'catalogos-virtuales': {
+    service: 'otro',
+  },
+  'catalogos': {
+    service: 'otro',
+  },
+
+  // Portafolios Digitales (service=otro, sin paquete)
   'portfolios-digitales': {
-    service: 'landing-page',
-    package: 'comercial',
+    service: 'otro',
   },
   'portfolios': {
-    service: 'landing-page',
-    package: 'comercial',
+    service: 'otro',
   },
+
+  // ==========================================
+  // 6. INVITACIONES DIGITALES
+  // ==========================================
+  // Página general con múltiples tipos de eventos -> solo ?tab=quote sin service ni paquete
+  'invitaciones-digitales': {},
+  'invitaciones': {},
 };
 
 /**
- * Tabla de equivalencia para categorías generales hacia los IDs canónicos
- * de servicios en Gerente Creativo cuando solo se dispone del slug de categoría.
+ * Mapeo de categorías generales hacia IDs canónicos de servicio en Gerente Creativo.
+ * Nota: 'diseno-digital' no tiene servicio único asignado, por lo que hace fallback a ?tab=quote.
  */
 export const CATEGORY_QUOTE_MAPPING: Record<string, string> = {
   'diseno-grafico': 'branding',
   'audiovisual': 'produccion-audiovisual',
   'spots-publicitarios': 'spot-publicitario',
   'animacion': 'animacion-motion',
-  'diseno-digital': 'landing-page',
 };
 
 /**
  * Genera la URL con deep link hacia Gerente Creativo preseleccionando
- * el servicio, paquete y variante exactos en el cotizador interactivo (?tab=quote).
+ * exclusivamente los parámetros autorizados en la especificación.
  *
  * @param subServiceSlug Slug o ID del subservicio (ej. "logos", "reels-tiktok", "landing-pages")
  * @param categorySlug Slug de la categoría padre opcional (ej. "diseno-grafico")
