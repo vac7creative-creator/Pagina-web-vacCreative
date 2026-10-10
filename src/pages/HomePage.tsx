@@ -9,6 +9,7 @@ import { CONTACT_DATA } from '../data/contact';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 import { Link } from '../utils/router';
 import { GERENTE_CREATIVO_QUOTE_BASE_URL } from '../utils/quoteLinks';
+import { ServicesCarousel } from '../components/ServicesCarousel';
 
 export const HomePage: React.FC = () => {
   const featuredProjects = getFeaturedProjects();
@@ -122,6 +123,11 @@ export const HomePage: React.FC = () => {
           </div>
         </Container>
       </section>
+
+      {/* ========================================================
+          ESCAPARATE: CARRUSEL HORIZONTAL DE SERVICIOS
+          ======================================================== */}
+      <ServicesCarousel />
 
       {/* ========================================================
           ROW 02: ECOSISTEMA CREATIVO (Integrated Creative Band)
