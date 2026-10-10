@@ -191,8 +191,6 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ category, 
             <div className="shrink-0">
               <Button
                 href={quoteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 variant="secondary"
                 size="lg"
                 className="gap-2.5 shadow-sm"

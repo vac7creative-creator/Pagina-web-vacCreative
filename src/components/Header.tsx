@@ -8,6 +8,7 @@ import { getDynamicProjectNavigation } from '../data/portfolio';
 import { GERENTE_CREATIVO_QUOTE_BASE_URL } from '../utils/quoteLinks';
 
 const GERENTE_CREATIVO_QUOTE_URL = GERENTE_CREATIVO_QUOTE_BASE_URL;
+const GERENTE_CREATIVO_TRACKER_URL = 'https://gerente-creativo-de-vac.vercel.app/?tab=tracker';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -369,6 +370,14 @@ export const Header: React.FC = () => {
               )}
             </Link>
 
+            {/* RASTREAR PROYECTO */}
+            <a
+              href={GERENTE_CREATIVO_TRACKER_URL}
+              className="relative py-1 transition-colors duration-200 hover:text-neutral-950 dark:hover:text-white"
+            >
+              <span>RASTREAR PROYECTO</span>
+            </a>
+
             {/* CONTACTO */}
             <Link
               href="/contacto"
@@ -392,11 +401,9 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-3 sm:gap-4">
             <ThemeToggle />
 
-            {/* Main "COTIZAR" Button: Directs to Gerente Creativo */}
+            {/* Main "COTIZAR" Button: Directs to Gerente Creativo en la MISMA pestaña */}
             <a
               href={GERENTE_CREATIVO_QUOTE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               title="Abrir cotizador interactivo con el Gerente Creativo"
               className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] px-4 sm:px-5 py-2.5 rounded-lg bg-neutral-900 text-white hover:bg-black dark:bg-[#C5A059] dark:text-[#0B0C0F] dark:hover:bg-[#DDAF56] transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer"
             >
@@ -600,6 +607,15 @@ export const Header: React.FC = () => {
                 {isCurrent('/nosotros') && <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />}
               </Link>
 
+              {/* RASTREAR PROYECTO */}
+              <a
+                href={GERENTE_CREATIVO_TRACKER_URL}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-bold tracking-[0.15em] py-2 flex items-center justify-between transition-colors text-neutral-800 dark:text-neutral-200 hover:text-[#C5A059]"
+              >
+                <span>RASTREAR PROYECTO</span>
+              </a>
+
               {/* CONTACTO */}
               <Link
                 href="/contacto"
@@ -620,8 +636,7 @@ export const Header: React.FC = () => {
           <div className="pt-6 border-t border-[#E7E1D4] dark:border-white/10 space-y-3 mt-6">
             <a
               href={GERENTE_CREATIVO_QUOTE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-neutral-900 text-white dark:bg-[#C5A059] dark:text-[#0B0C0F] font-bold text-xs uppercase tracking-[0.15em] hover:bg-black dark:hover:bg-[#DDAF56] transition-colors"
             >
               <span>Cotizar con Gerente Creativo</span>
