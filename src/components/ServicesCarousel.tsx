@@ -433,12 +433,12 @@ export const ServicesCarousel: React.FC = () => {
                       <ArrowUpRight size={13} className="text-[#C5A059] shrink-0" />
                     </Link>
 
-                    {/* Botón 2: Cotizar (Deep link a Gerente Creativo en la MISMA PESTAÑA, sin target='_blank') */}
+                    {/* Botón 2: Ver Paquetes (para fichas comerciales de Gerente Creativo) / Cotizar (para subservicios VAC) en la MISMA PESTAÑA */}
                     <a
                       href={item.quoteUrl}
                       className="inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-neutral-900 hover:bg-black text-white dark:bg-[#C5A059] dark:hover:bg-[#DDAF56] dark:text-[#0B0C0F] text-[11px] font-bold uppercase tracking-[0.14em] transition-all shadow-2xs hover:shadow-sm cursor-pointer text-center"
                     >
-                      <span>Cotizar</span>
+                      <span>{isGerenteCreativo ? 'Ver Paquetes' : 'Cotizar'}</span>
                       <ExternalLink size={12} className="shrink-0 opacity-80" />
                     </a>
                   </div>
