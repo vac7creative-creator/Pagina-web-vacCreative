@@ -6,6 +6,7 @@ import { Button } from '../components/Button';
 import { CONTACT_DATA } from '../data/contact';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 import { MessageCircle, Phone, Mail, Clock, ArrowUpRight } from 'lucide-react';
+import { GERENTE_CREATIVO_QUOTE_BASE_URL } from '../utils/quoteLinks';
 
 export const ContactPage: React.FC = () => {
   return (
@@ -48,7 +49,7 @@ export const ContactPage: React.FC = () => {
                 </Button>
 
                 <a
-                  href="https://gerente-creativo-de-vac.vercel.app/?tab=quote"
+                  href={GERENTE_CREATIVO_QUOTE_BASE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-[0.15em] transition-colors"

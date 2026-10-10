@@ -5,8 +5,9 @@ import { ThemeToggle } from './ThemeToggle';
 import { CONTACT_DATA } from '../data/contact';
 import { SERVICES_DATA } from '../data/services';
 import { getDynamicProjectNavigation } from '../data/portfolio';
+import { GERENTE_CREATIVO_QUOTE_BASE_URL } from '../utils/quoteLinks';
 
-const GERENTE_CREATIVO_QUOTE_URL = 'https://gerente-creativo-de-vac.vercel.app/?tab=quote';
+const GERENTE_CREATIVO_QUOTE_URL = GERENTE_CREATIVO_QUOTE_BASE_URL;
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);

@@ -8,6 +8,7 @@ import { getFeaturedProjects } from '../data/portfolio';
 import { CONTACT_DATA } from '../data/contact';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 import { Link } from '../utils/router';
+import { GERENTE_CREATIVO_QUOTE_BASE_URL } from '../utils/quoteLinks';
 
 export const HomePage: React.FC = () => {
   const featuredProjects = getFeaturedProjects();
@@ -383,7 +384,7 @@ export const HomePage: React.FC = () => {
                 {/* Heroic CTA Buttons (Gerente Creativo Cotizador + WhatsApp) */}
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <a
-                    href="https://gerente-creativo-de-vac.vercel.app/?tab=quote"
+                    href={GERENTE_CREATIVO_QUOTE_BASE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2.5 px-7 sm:px-9 py-4 rounded-xl bg-neutral-950 text-white hover:bg-black dark:bg-[#C5A059] dark:text-[#0B0C0F] dark:hover:bg-[#DDAF56] text-xs sm:text-sm font-black uppercase tracking-[0.18em] transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer"

@@ -9,13 +9,13 @@ import {
   CheckCircle2,
   Users,
   ExternalLink,
-  MessageCircle,
+  ArrowUpRight,
   ArrowLeft,
   Sparkles,
   FolderArchive,
 } from 'lucide-react';
-import { getWhatsAppUrl } from '../utils/whatsapp';
 import { Link } from '../utils/router';
+import { getGerenteCreativoQuoteUrl } from '../utils/quoteLinks';
 
 interface ServiceDetailPageProps {
   category: ServiceCategory;
@@ -23,13 +23,7 @@ interface ServiceDetailPageProps {
 }
 
 export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ category, subService }) => {
-  const whatsappUrl = getWhatsAppUrl({
-    customNumber: subService.whatsappNumber,
-    customMessage: subService.whatsappMessage,
-    categoryTitle: category.title,
-    subServiceTitle: subService.title,
-  });
-
+  const quoteUrl = getGerenteCreativoQuoteUrl(subService.slug || subService.id, category.slug);
   const hasDriveLink = category.driveLink && category.driveLink !== '#';
   const specificProjects = getProjectsBySubService(subService.slug);
 
@@ -190,21 +184,21 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ category, 
                 ¿Deseas iniciar tu proyecto de {subService.title}?
               </h3>
               <p className="text-sm text-neutral-300 font-normal">
-                Escríbenos directamente para asesorarte sobre formatos, tiempos de entrega y cotizaciones personalizadas.
+                Configura tu cotización personalizada al instante en nuestra plataforma Gerente Creativo con los alcances y requerimientos de tu proyecto.
               </p>
             </div>
 
             <div className="shrink-0">
               <Button
-                href={whatsappUrl}
+                href={quoteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="secondary"
                 size="lg"
                 className="gap-2.5 shadow-sm"
               >
-                <MessageCircle size={18} />
                 <span>Solicitar Cotización</span>
+                <ArrowUpRight size={18} />
               </Button>
             </div>
           </div>
