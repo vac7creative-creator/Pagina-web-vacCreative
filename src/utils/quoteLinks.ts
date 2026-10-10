@@ -205,8 +205,17 @@ export const SUB_SERVICE_QUOTE_MAPPING: Record<string, QuoteDeepLinkParams> = {
   },
 
   // ==========================================
-  // 6. INVITACIONES DIGITALES
+  // 6. INVITACIONES DIGITALES (Gerente Creativo & Catálogo)
   // ==========================================
+  'boda': {
+    service: 'boda',
+  },
+  'xv-anos': {
+    service: 'xv-anos',
+  },
+  'cumpleanos': {
+    service: 'cumpleanos',
+  },
   // Página general con múltiples tipos de eventos -> solo ?tab=quote sin service ni paquete
   'invitaciones-digitales': {},
   'invitaciones': {},
