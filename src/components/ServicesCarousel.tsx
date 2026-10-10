@@ -247,10 +247,10 @@ export const ServicesCarousel: React.FC = () => {
           <div className="flex items-center gap-3 shrink-0 self-start md:self-end">
             <Link
               href="/servicios"
-              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.16em] text-neutral-900 dark:text-white hover:text-[#C5A059] dark:hover:text-[#ECC880] transition-colors py-2 px-3 rounded-lg border border-neutral-200 dark:border-white/10 hover:border-[#C5A059]/40 bg-white/50 dark:bg-white/5 cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.16em] text-neutral-900 dark:text-white hover:text-[#C5A059] dark:hover:text-[#ECC880] transition-colors py-2 px-3 rounded-lg border border-neutral-200 dark:border-white/10 hover:border-[#C5A059]/40 dark:hover:border-[#ECC880]/40 bg-white/50 dark:bg-white/5 cursor-pointer"
             >
               <span>Ver Todos</span>
-              <ArrowUpRight size={13} className="text-[#C5A059]" />
+              <ArrowUpRight size={13} className="text-[#C5A059] dark:text-[#ECC880]" />
             </Link>
 
             {/* Flechas de desplazamiento */}
@@ -262,7 +262,7 @@ export const ServicesCarousel: React.FC = () => {
                 aria-label="Desplazar servicios a la izquierda"
                 className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${
                   canScrollLeft
-                    ? 'text-neutral-800 dark:text-neutral-200 hover:bg-[#C5A059]/10 hover:text-[#C5A059] cursor-pointer'
+                    ? 'text-neutral-800 dark:text-neutral-200 hover:bg-[#C5A059]/10 dark:hover:bg-[#ECC880]/10 hover:text-[#C5A059] dark:hover:text-[#ECC880] cursor-pointer'
                     : 'text-neutral-300 dark:text-neutral-700 cursor-not-allowed opacity-40'
                 }`}
               >
@@ -275,7 +275,7 @@ export const ServicesCarousel: React.FC = () => {
                 aria-label="Desplazar servicios a la derecha"
                 className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${
                   canScrollRight
-                    ? 'text-neutral-800 dark:text-neutral-200 hover:bg-[#C5A059]/10 hover:text-[#C5A059] cursor-pointer'
+                    ? 'text-neutral-800 dark:text-neutral-200 hover:bg-[#C5A059]/10 dark:hover:bg-[#ECC880]/10 hover:text-[#C5A059] dark:hover:text-[#ECC880] cursor-pointer'
                     : 'text-neutral-300 dark:text-neutral-700 cursor-not-allowed opacity-40'
                 }`}
               >
@@ -295,7 +295,7 @@ export const ServicesCarousel: React.FC = () => {
               onClick={() => setActiveCategoryFilter('all')}
               className={`px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.14em] rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
                 activeCategoryFilter === 'all'
-                  ? 'bg-neutral-900 text-white dark:bg-[#C5A059] dark:text-[#0B0C0F] shadow-xs'
+                  ? 'bg-neutral-900 text-white dark:bg-[#ECC880] dark:text-[#0B0C0F] shadow-xs'
                   : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white bg-neutral-100 dark:bg-white/5 border border-transparent hover:border-neutral-200 dark:hover:border-white/10'
               }`}
             >
@@ -312,7 +312,7 @@ export const ServicesCarousel: React.FC = () => {
                   onClick={() => setActiveCategoryFilter(cat.slug)}
                   className={`px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.14em] rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
                     isActive
-                      ? 'bg-neutral-900 text-white dark:bg-[#C5A059] dark:text-[#0B0C0F] shadow-xs'
+                      ? 'bg-neutral-900 text-white dark:bg-[#ECC880] dark:text-[#0B0C0F] shadow-xs'
                       : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white bg-neutral-100 dark:bg-white/5 border border-transparent hover:border-neutral-200 dark:hover:border-white/10'
                   }`}
                 >
@@ -344,8 +344,8 @@ export const ServicesCarousel: React.FC = () => {
                 key={item.id}
                 className={`group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[350px] flex flex-col justify-between rounded-2xl border transition-all duration-300 shadow-2xs hover:shadow-xl overflow-hidden ${
                   isGerenteCreativo
-                    ? 'border-[#C5A059]/30 dark:border-[#C5A059]/25 bg-white dark:bg-[#12141C] hover:border-[#C5A059]'
-                    : 'border-neutral-200/90 dark:border-white/10 bg-white dark:bg-[#12141C] hover:border-[#C5A059]/70'
+                    ? 'border-[#C5A059]/30 dark:border-[#ECC880]/25 bg-white dark:bg-[#12141C] hover:border-[#C5A059] dark:hover:border-[#ECC880]'
+                    : 'border-neutral-200/90 dark:border-white/10 bg-white dark:bg-[#12141C] hover:border-[#C5A059]/70 dark:hover:border-[#ECC880]/70'
                 }`}
               >
                 {/* Parte Superior: Media + Badges */}
@@ -363,7 +363,7 @@ export const ServicesCarousel: React.FC = () => {
 
                     {/* Tag de Categoría en esquina superior izquierda */}
                     <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-xs border border-white/10 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
-                      <span className="text-[#ECC880]">{item.categoryNumber}</span>
+                      <span className="text-[#ECC880] dark:text-[#ECC880]">{item.categoryNumber}</span>
                       <span>·</span>
                       <span className="truncate max-w-[130px]">{item.categoryTitle}</span>
                     </div>
@@ -371,21 +371,21 @@ export const ServicesCarousel: React.FC = () => {
                     {/* Tiempo de entrega en esquina superior derecha (fichas de Gerente Creativo) */}
                     {item.deliveryTime && (
                       <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-xs border border-white/10 text-neutral-300 font-mono text-[10px]">
-                        <Clock size={11} className="text-[#C5A059]" />
+                        <Clock size={11} className="text-[#C5A059] dark:text-[#ECC880]" />
                         <span>{item.deliveryTime}</span>
                       </div>
                     )}
 
                     {/* Badge de Precio en esquina inferior izquierda */}
                     {item.price && (
-                      <div className="absolute bottom-3 left-3 bg-[#111215]/95 dark:bg-black/90 border border-[#C5A059]/40 text-[#ECC880] font-mono text-xs px-2.5 py-1 rounded-sm tracking-tight font-semibold shadow-sm">
+                      <div className="absolute bottom-3 left-3 bg-[#111215]/95 dark:bg-black/90 border border-[#C5A059]/40 dark:border-[#ECC880]/40 text-[#ECC880] dark:text-[#ECC880] font-mono text-xs px-2.5 py-1 rounded-sm tracking-tight font-semibold shadow-sm">
                         {item.price}
                       </div>
                     )}
 
                     {/* Badge de tipo de ficha comercial en esquina inferior derecha */}
                     {isGerenteCreativo && (
-                      <div className="absolute bottom-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-sm bg-[#C5A059]/90 text-black font-mono text-[9px] font-bold uppercase tracking-widest">
+                      <div className="absolute bottom-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-sm bg-[#C5A059]/90 dark:bg-[#ECC880] text-black font-mono text-[9px] font-bold uppercase tracking-widest">
                         <Sparkles size={10} />
                         <span>Comercial</span>
                       </div>
@@ -412,7 +412,7 @@ export const ServicesCarousel: React.FC = () => {
                             key={idx}
                             className="flex items-center gap-1.5 text-[11px] text-neutral-500 dark:text-neutral-400 font-mono truncate"
                           >
-                            <span className="text-[#C5A059] font-bold">·</span>
+                            <span className="text-[#C5A059] dark:text-[#ECC880] font-bold">·</span>
                             <span className="truncate">{feat}</span>
                           </div>
                         ))}
@@ -427,16 +427,16 @@ export const ServicesCarousel: React.FC = () => {
                     {/* Botón 1: Ver Más (Navegación interna en la MISMA PESTAÑA) */}
                     <Link
                       href={item.detailUrl}
-                      className="inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg border border-neutral-200 dark:border-white/10 hover:border-neutral-900 dark:hover:border-white/30 bg-neutral-50 dark:bg-white/5 hover:bg-neutral-100 dark:hover:bg-white/10 text-neutral-900 dark:text-white text-[11px] font-bold uppercase tracking-[0.14em] transition-all cursor-pointer text-center"
+                      className="inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg border border-neutral-200 dark:border-white/10 hover:border-neutral-900 dark:hover:border-[#ECC880]/50 bg-neutral-50 dark:bg-white/5 hover:bg-neutral-100 dark:hover:bg-white/10 text-neutral-900 dark:text-white text-[11px] font-bold uppercase tracking-[0.14em] transition-all cursor-pointer text-center"
                     >
                       <span>Ver Más</span>
-                      <ArrowUpRight size={13} className="text-[#C5A059] shrink-0" />
+                      <ArrowUpRight size={13} className="text-[#C5A059] dark:text-[#ECC880] shrink-0" />
                     </Link>
 
                     {/* Botón 2: Ver Paquetes (para fichas comerciales de Gerente Creativo) / Cotizar (para subservicios VAC) en la MISMA PESTAÑA */}
                     <a
                       href={item.quoteUrl}
-                      className="inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-neutral-900 hover:bg-black text-white dark:bg-[#C5A059] dark:hover:bg-[#DDAF56] dark:text-[#0B0C0F] text-[11px] font-bold uppercase tracking-[0.14em] transition-all shadow-2xs hover:shadow-sm cursor-pointer text-center"
+                      className="inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-neutral-900 hover:bg-black text-white dark:bg-[#ECC880] dark:hover:bg-[#ECC880]/90 dark:text-[#0B0C0F] text-[11px] font-bold uppercase tracking-[0.14em] transition-all shadow-2xs hover:shadow-sm cursor-pointer text-center"
                     >
                       <span>{isGerenteCreativo ? 'Ver Paquetes' : 'Cotizar'}</span>
                       <ExternalLink size={12} className="shrink-0 opacity-80" />
@@ -451,7 +451,7 @@ export const ServicesCarousel: React.FC = () => {
         {/* Indicador inferior de navegación y resumen */}
         <div className="mt-4 flex items-center justify-between text-[11px] font-mono text-neutral-500 dark:text-neutral-400 px-1">
           <div className="flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#C5A059] dark:bg-[#ECC880]" />
             <span className="uppercase tracking-wider">
               {filteredItems.length} opciones en esta sección
             </span>

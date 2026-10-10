@@ -42,7 +42,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Mapas interactivos e itinerario'
     ],
     detailUrl: '/servicios/diseno-digital/invitaciones-digitales',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=boda'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=boda'
   },
   {
     id: 'gc-xv-anos',
@@ -62,7 +62,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Control de pases y confirmación'
     ],
     detailUrl: '/servicios/diseno-digital/invitaciones-digitales',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=xv-anos'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=xv-anos'
   },
   {
     id: 'gc-cumpleanos',
@@ -82,7 +82,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Entrega express en 24-48 horas'
     ],
     detailUrl: '/servicios/diseno-digital/invitaciones-digitales',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=cumpleanos'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=cumpleanos'
   },
   {
     id: 'gc-carta-digital',
@@ -102,7 +102,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Filtro dinámico de platillos y precios'
     ],
     detailUrl: '/servicios/diseno-digital/menus-digitales',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=carta-digital'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=carta-digital'
   },
   {
     id: 'gc-landing-page',
@@ -122,7 +122,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Llamados a la acción & WhatsApp integrados'
     ],
     detailUrl: '/servicios/diseno-digital/landing-pages',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=landing-page'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=landing-page'
   },
   {
     id: 'gc-spot-publicitario',
@@ -142,7 +142,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Entrega en archivos WAV y MP3 en alta fidelidad'
     ],
     detailUrl: '/servicios/spots-publicitarios/spots-radiales',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=spot-publicitario'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=spot-publicitario'
   },
   {
     id: 'gc-produccion-audiovisual',
@@ -162,7 +162,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Formatos optimizados para TikTok, Reels y YouTube'
     ],
     detailUrl: '/servicios/audiovisual/edicion-video',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=produccion-audiovisual'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=produccion-audiovisual'
   },
   {
     id: 'gc-branding',
@@ -182,7 +182,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Archivos editables y derechos de uso comercial'
     ],
     detailUrl: '/servicios/diseno-grafico/logos',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=branding&package=logo'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=branding'
   },
   {
     id: 'gc-artes-multimedia',
@@ -202,7 +202,7 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Formatos optimizados para Instagram y WhatsApp'
     ],
     detailUrl: '/servicios/diseno-grafico/flyers',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=artes-multimedia'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=artes-multimedia'
   },
   {
     id: 'gc-animacion-motion',
@@ -222,6 +222,6 @@ export const GERENTE_CREATIVO_COMMERCIAL_CARDS: GerenteCreativoServiceItem[] = [
       'Archivos en MP4 Full HD y GIF transparente'
     ],
     detailUrl: '/servicios/animacion/logos-animados',
-    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=quote&service=animacion-motion'
+    quoteUrl: 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog&service=animacion-motion'
   }
 ];

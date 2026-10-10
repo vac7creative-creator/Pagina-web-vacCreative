@@ -9,6 +9,7 @@
 
 export const GERENTE_CREATIVO_BASE_URL = 'https://gerente-creativo-de-vac.vercel.app/';
 export const GERENTE_CREATIVO_QUOTE_BASE_URL = 'https://gerente-creativo-de-vac.vercel.app/?tab=quote';
+export const GERENTE_CREATIVO_CATALOG_BASE_URL = 'https://gerente-creativo-de-vac.vercel.app/?tab=catalog';
 
 export interface QuoteDeepLinkParams {
   service?: string;
@@ -240,7 +241,7 @@ export const CATEGORY_QUOTE_MAPPING: Record<string, string> = {
  * @param categorySlug Slug de la categoría padre opcional (ej. "diseno-grafico")
  */
 export function getGerenteCreativoQuoteUrl(subServiceSlug?: string, categorySlug?: string): string {
-  const url = new URL(GERENTE_CREATIVO_QUOTE_BASE_URL);
+  const url = new URL(GERENTE_CREATIVO_CATALOG_BASE_URL);
 
   if (subServiceSlug && SUB_SERVICE_QUOTE_MAPPING[subServiceSlug]) {
     const params = SUB_SERVICE_QUOTE_MAPPING[subServiceSlug];
@@ -255,5 +256,20 @@ export function getGerenteCreativoQuoteUrl(subServiceSlug?: string, categorySlug
     return url.toString();
   }
 
-  return GERENTE_CREATIVO_QUOTE_BASE_URL;
+  return GERENTE_CREATIVO_CATALOG_BASE_URL;
+}
+
+/**
+ * Genera la URL con deep link hacia el Catálogo de Paquetes de Gerente Creativo
+ * preseleccionando el servicio para visualizar directamente sus fichas y paquetes.
+ *
+ * @param serviceId ID del servicio o subservicio en Gerente Creativo (ej. "boda", "landing-page", "branding")
+ */
+export function getGerenteCreativoCatalogUrl(serviceId?: string): string {
+  if (!serviceId) {
+    return GERENTE_CREATIVO_CATALOG_BASE_URL;
+  }
+  const url = new URL(GERENTE_CREATIVO_CATALOG_BASE_URL);
+  url.searchParams.set('service', serviceId);
+  return url.toString();
 }
