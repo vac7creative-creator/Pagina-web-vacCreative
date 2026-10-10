@@ -27,7 +27,7 @@ export const ImagePortfolioCard: React.FC<ImagePortfolioCardProps> = ({ project,
             target="_blank"
             rel="noopener noreferrer"
             title="Abrir imagen o archivo"
-            className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-xs flex items-center justify-center text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+            className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-xs flex items-center justify-center text-neutral-800 dark:text-neutral-200 group-hover:text-[#C5A059] dark:group-hover:text-[#ECC880] transition-colors"
           >
             <ExternalLink size={13} />
           </a>
@@ -42,7 +42,7 @@ export const ImagePortfolioCard: React.FC<ImagePortfolioCardProps> = ({ project,
             {project.year && <span className="tabular-nums">{project.year}</span>}
           </div>
 
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-neutral-900 dark:text-white mb-2">
+          <h3 className="font-sans text-lg sm:text-xl font-bold tracking-tight text-neutral-900 dark:text-white mb-2">
             {project.title}
           </h3>
 
@@ -57,7 +57,7 @@ export const ImagePortfolioCard: React.FC<ImagePortfolioCardProps> = ({ project,
               href={project.previewUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 font-medium transition-colors"
+              className="inline-flex items-center gap-1 text-[#C5A059] dark:text-[#ECC880] hover:text-[#A88238] dark:hover:text-[#F3D38D] font-semibold transition-colors"
             >
               <span>Ver muestra</span>
               <ExternalLink size={13} />

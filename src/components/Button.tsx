@@ -34,9 +34,9 @@ export const Button: React.FC<ButtonProps> = ({
     primary:
       'bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 shadow-sm active:scale-[0.98]',
     secondary:
-      'bg-sky-600 text-white hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400 active:scale-[0.98]',
+      'bg-[#C5A059] text-black font-semibold hover:bg-[#DDAF56] dark:bg-[#C5A059] dark:hover:bg-[#ECC880] active:scale-[0.98] shadow-sm',
     outline:
-      'border border-neutral-300 dark:border-white/15 text-neutral-800 dark:text-neutral-200 hover:border-neutral-900 dark:hover:border-white hover:bg-neutral-50 dark:hover:bg-white/5 active:scale-[0.98]',
+      'border border-neutral-300 dark:border-white/15 text-neutral-800 dark:text-neutral-200 hover:border-[#C5A059] dark:hover:border-[#C5A059] hover:bg-neutral-50 dark:hover:bg-white/5 active:scale-[0.98]',
     ghost:
       'text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white hover:bg-neutral-100/70 dark:hover:bg-white/5',
   };

@@ -22,13 +22,13 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   return (
     <div className={`mb-12 sm:mb-16 ${isCenter ? 'text-center mx-auto max-w-3xl' : 'max-w-2xl'} ${className}`}>
       {(number || kicker) && (
-        <div className={`flex items-center gap-2.5 text-xs font-mono uppercase tracking-widest text-sky-600 dark:text-sky-400 mb-3 ${isCenter ? 'justify-center' : ''}`}>
+        <div className={`flex items-center gap-2.5 text-xs font-mono uppercase tracking-[0.2em] text-[#C5A059] dark:text-[#ECC880] mb-3 ${isCenter ? 'justify-center' : ''}`}>
           {number && <span className="tabular-nums font-semibold">{number}</span>}
           {number && kicker && <span aria-hidden="true" className="text-neutral-300 dark:text-neutral-700">·</span>}
           {kicker && <span>{kicker}</span>}
         </div>
       )}
-      <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.15] text-balance">
+      <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-neutral-900 dark:text-white leading-[1.12] text-balance">
         {title}
       </h2>
       {description && (

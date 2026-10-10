@@ -27,7 +27,7 @@ export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ catego
         <div className="mb-6">
           <Link
             href="/servicios"
-            className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-500 hover:text-[#C5A059] dark:hover:text-[#ECC880] transition-colors"
           >
             <ArrowLeft size={14} />
             <span>Volver a todas las disciplinas</span>
@@ -36,13 +36,13 @@ export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ catego
 
         {/* Category Header (Focused on Title, Description and Subservices) */}
         <div className="border-b border-neutral-200 dark:border-white/10 pb-12">
-          <div className="flex items-center gap-2 font-mono text-xs text-sky-600 dark:text-sky-400 mb-3">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[#C5A059] dark:text-[#ECC880] mb-3">
             <span className="tabular-nums font-semibold">{category.number}</span>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true" className="text-neutral-300 dark:text-neutral-700">·</span>
             <span>Disciplina Creativa</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.1] mb-6 text-balance">
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-neutral-900 dark:text-white leading-[1.08] mb-6 text-balance">
             {category.title}
           </h1>
 
@@ -55,7 +55,7 @@ export const ServiceCategoryPage: React.FC<ServiceCategoryPageProps> = ({ catego
         <div>
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">
+              <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
                 Servicios Disponibles
               </h2>
               <p className="text-sm text-neutral-500 mt-1">

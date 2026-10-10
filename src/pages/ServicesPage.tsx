@@ -30,12 +30,12 @@ export const ServicesPage: React.FC = () => {
             >
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 gap-4">
                 <div>
-                  <div className="flex items-center gap-2 font-mono text-xs text-sky-600 dark:text-sky-400 mb-2">
+                  <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-[#C5A059] dark:text-[#ECC880] mb-2">
                     <span className="tabular-nums font-semibold">{category.number}</span>
-                    <span aria-hidden="true">·</span>
+                    <span aria-hidden="true" className="text-neutral-300 dark:text-neutral-700">·</span>
                     <span>Categoría</span>
                   </div>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">
+                  <h2 className="font-sans text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
                     {category.title}
                   </h2>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-2xl mt-1">
@@ -45,10 +45,10 @@ export const ServicesPage: React.FC = () => {
 
                 <Link
                   href={`/servicios/${category.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 transition-colors self-start shrink-0"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111215] dark:text-white hover:text-[#C5A059] dark:hover:text-[#ECC880] transition-colors self-start shrink-0 group"
                 >
                   <span>Ver categoría completa</span>
-                  <ArrowUpRight size={14} />
+                  <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>
 

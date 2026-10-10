@@ -9,11 +9,15 @@ export const Hero3DMoodboard: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Slow, organic depth shift cycle every 6.5 seconds
+  // Continuously alive depth shift cycle every 2000ms (1.8s - 2.2s range)
   useEffect(() => {
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     const timer = setInterval(() => {
-      setCycle((prev) => (prev + 1) % 3);
-    }, 6500);
+      setCycle((prev) => (prev + 1) % 4);
+    }, 2000);
     return () => clearInterval(timer);
   }, []);
 
@@ -30,39 +34,45 @@ export const Hero3DMoodboard: React.FC = () => {
     setMousePos({ x: 0, y: 0 });
   };
 
-  // Depth states for cycle transitions (Layer positions change organically)
-  // Cycle 0: Portrait front-right, Branding card mid-left, Landscape upper-right, Camera bottom-right
-  // Cycle 1: Branding card moves forward, Portrait recedes slightly, Glass plaque catches light
-  // Cycle 2: Landscape & Camera advance, Portrait rebalances, subtle float
+  // Depth states for cycle transitions (Layer positions continuously exchange depth)
+  // Continuous fluid transitions across 4 organic steps
   const getDepthStyle = (layerIndex: number) => {
     if (!isDesktop) {
       return { zIndex: 10 - layerIndex, translateZ: 0, scale: 1 };
     }
 
     const configurations = [
-      // Cycle 0
+      // Cycle 0: Portrait forward right, Brand mid left, Landscape top left, Camera lower right, Plaque center
       [
-        { zIndex: 40, z: 50, scale: 1.04, rotX: -2, rotY: 3, xOffset: 0, yOffset: 0 }, // Portrait
-        { zIndex: 35, z: 25, scale: 1.0, rotX: 3, rotY: -6, xOffset: -10, yOffset: 10 }, // Brand Card
-        { zIndex: 25, z: -20, scale: 0.95, rotX: -4, rotY: 6, xOffset: 15, yOffset: -15 }, // Landscape
-        { zIndex: 30, z: 15, scale: 0.98, rotX: 2, rotY: -3, xOffset: 10, yOffset: 20 }, // Camera Rig
-        { zIndex: 45, z: 65, scale: 1.06, rotX: 1, rotY: 2, xOffset: -5, yOffset: 5 }, // Gold Glass Plaque
+        { zIndex: 40, z: 48, scale: 1.04, rotX: -2, rotY: 3, xOffset: 0, yOffset: 0, opacity: 1 }, // 0: Portrait
+        { zIndex: 35, z: 20, scale: 0.99, rotX: 3, rotY: -6, xOffset: -8, yOffset: 8, opacity: 0.96 }, // 1: Brand Card
+        { zIndex: 25, z: -15, scale: 0.95, rotX: -4, rotY: 5, xOffset: 12, yOffset: -12, opacity: 0.92 }, // 2: Landscape
+        { zIndex: 30, z: 12, scale: 0.98, rotX: 2, rotY: -3, xOffset: 8, yOffset: 16, opacity: 0.95 }, // 3: Camera Rig
+        { zIndex: 45, z: 62, scale: 1.05, rotX: 1, rotY: 2, xOffset: -4, yOffset: 4, opacity: 1 }, // 4: Plaque
       ],
-      // Cycle 1
+      // Cycle 1: Brand Card floats to foreground, Portrait softens depth, Plaque glides gently
       [
-        { zIndex: 30, z: 10, scale: 0.98, rotX: 2, rotY: -2, xOffset: 5, yOffset: -5 }, // Portrait
-        { zIndex: 45, z: 55, scale: 1.05, rotX: -2, rotY: 4, xOffset: 5, yOffset: -5 }, // Brand Card
-        { zIndex: 35, z: 20, scale: 1.01, rotX: 3, rotY: -4, xOffset: -5, yOffset: 5 }, // Landscape
-        { zIndex: 25, z: -15, scale: 0.94, rotX: -3, rotY: 5, xOffset: -10, yOffset: -10 }, // Camera Rig
-        { zIndex: 40, z: 45, scale: 1.02, rotX: -1, rotY: -2, xOffset: 8, yOffset: -8 }, // Gold Glass Plaque
+        { zIndex: 32, z: 14, scale: 0.98, rotX: 2, rotY: -2, xOffset: 4, yOffset: -4, opacity: 0.95 }, // Portrait
+        { zIndex: 45, z: 52, scale: 1.05, rotX: -2, rotY: 4, xOffset: 4, yOffset: -4, opacity: 1 }, // Brand Card
+        { zIndex: 35, z: 18, scale: 1.01, rotX: 3, rotY: -4, xOffset: -4, yOffset: 4, opacity: 0.96 }, // Landscape
+        { zIndex: 28, z: -10, scale: 0.95, rotX: -3, rotY: 4, xOffset: -8, yOffset: -8, opacity: 0.92 }, // Camera Rig
+        { zIndex: 42, z: 46, scale: 1.02, rotX: -1, rotY: -2, xOffset: 6, yOffset: -6, opacity: 1 }, // Plaque
       ],
-      // Cycle 2
+      // Cycle 2: Landscape & Cinema camera advance to the foreground, Brand card settles
       [
-        { zIndex: 35, z: 30, scale: 1.01, rotX: -1, rotY: 1, xOffset: -5, yOffset: 5 }, // Portrait
-        { zIndex: 25, z: -10, scale: 0.95, rotX: 4, rotY: -5, xOffset: -15, yOffset: 15 }, // Brand Card
-        { zIndex: 45, z: 50, scale: 1.04, rotX: -3, rotY: 5, xOffset: 10, yOffset: -10 }, // Landscape
-        { zIndex: 40, z: 35, scale: 1.02, rotX: 1, rotY: -2, xOffset: 5, yOffset: 10 }, // Camera Rig
-        { zIndex: 30, z: 15, scale: 0.97, rotX: 2, rotY: 3, xOffset: -10, yOffset: 12 }, // Gold Glass Plaque
+        { zIndex: 36, z: 28, scale: 1.01, rotX: -1, rotY: 1, xOffset: -4, yOffset: 4, opacity: 0.98 }, // Portrait
+        { zIndex: 28, z: -8, scale: 0.96, rotX: 4, rotY: -5, xOffset: -12, yOffset: 12, opacity: 0.93 }, // Brand Card
+        { zIndex: 45, z: 48, scale: 1.04, rotX: -3, rotY: 5, xOffset: 8, yOffset: -8, opacity: 1 }, // Landscape
+        { zIndex: 42, z: 38, scale: 1.03, rotX: 1, rotY: -2, xOffset: 4, yOffset: 8, opacity: 1 }, // Camera Rig
+        { zIndex: 34, z: 20, scale: 0.98, rotX: 2, rotY: 3, xOffset: -8, yOffset: 10, opacity: 0.98 }, // Plaque
+      ],
+      // Cycle 3: Cinema rig & Portrait harmonize in depth, Brand card re-emerges, landscape recedes
+      [
+        { zIndex: 42, z: 40, scale: 1.03, rotX: -1.5, rotY: 2, xOffset: 2, yOffset: -2, opacity: 1 }, // Portrait
+        { zIndex: 38, z: 32, scale: 1.01, rotX: 1, rotY: -3, xOffset: 2, yOffset: 2, opacity: 0.98 }, // Brand Card
+        { zIndex: 30, z: 5, scale: 0.97, rotX: 2, rotY: -2, xOffset: 2, yOffset: 2, opacity: 0.94 }, // Landscape
+        { zIndex: 45, z: 44, scale: 1.04, rotX: -2, rotY: 2, xOffset: -4, yOffset: 4, opacity: 1 }, // Camera Rig
+        { zIndex: 40, z: 36, scale: 1.01, rotX: 0, rotY: 0, xOffset: 0, yOffset: 0, opacity: 1 }, // Plaque
       ],
     ];
 
@@ -71,6 +81,7 @@ export const Hero3DMoodboard: React.FC = () => {
 
     return {
       zIndex: config.zIndex,
+      opacity: config.opacity,
       transform: `perspective(1200px) translate3d(${
         config.xOffset + mousePos.x * parallaxFactor
       }px, ${config.yOffset + mousePos.y * parallaxFactor}px, ${config.z}px) rotateX(${
@@ -92,7 +103,7 @@ export const Hero3DMoodboard: React.FC = () => {
       {/* Layer 1: Core Portrait Layer (Cinematic Creative Visionary with golden lighting) */}
       <motion.div
         style={getDepthStyle(0)}
-        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-[5%] right-[10%] w-[58%] sm:w-[54%] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-white/20 dark:border-[#C5A059]/30 bg-black"
       >
         <img
@@ -112,7 +123,7 @@ export const Hero3DMoodboard: React.FC = () => {
       {/* Layer 2: Luxury Brand Stationery Card (Matte black + gold embossed V.A.C.) */}
       <motion.div
         style={getDepthStyle(1)}
-        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         className="absolute bottom-[10%] left-[2%] w-[48%] sm:w-[45%] aspect-square rounded-2xl overflow-hidden shadow-2xl border border-[#C5A059]/40 bg-[#0E0F13]"
       >
         <img
@@ -126,7 +137,7 @@ export const Hero3DMoodboard: React.FC = () => {
       {/* Layer 3: Andean Landscape Drone View (Cinematic high production) */}
       <motion.div
         style={getDepthStyle(2)}
-        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-[8%] left-[6%] w-[42%] sm:w-[40%] aspect-[16/10] rounded-xl overflow-hidden shadow-xl border border-white/10 dark:border-white/10 bg-neutral-900"
       >
         <img
@@ -143,7 +154,7 @@ export const Hero3DMoodboard: React.FC = () => {
       {/* Layer 4: Cinema Camera Production Rig */}
       <motion.div
         style={getDepthStyle(3)}
-        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         className="absolute bottom-[4%] right-[4%] w-[46%] sm:w-[42%] aspect-[4/3] rounded-xl overflow-hidden shadow-2xl border border-neutral-200/50 dark:border-white/10 bg-black"
       >
         <img
@@ -160,7 +171,7 @@ export const Hero3DMoodboard: React.FC = () => {
       {/* Layer 5: Luxury Gold Plaque ("CREACIÓN QUE INSPIRA" - Reference exact motif!) */}
       <motion.div
         style={getDepthStyle(4)}
-        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         className="absolute top-[48%] left-[28%] sm:left-[32%] px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl bg-[#121318]/90 dark:bg-[#121318]/95 backdrop-blur-md border border-[#C5A059]/60 shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(197,160,89,0.2)] text-white select-none pointer-events-none"
       >
         <div className="flex items-center gap-2 mb-0.5">

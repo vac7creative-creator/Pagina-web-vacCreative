@@ -39,7 +39,7 @@ export const ProjectsPage: React.FC = () => {
                 onClick={() => setSelectedFilter('all')}
                 className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-200 cursor-pointer ${
                   selectedFilter === 'all'
-                    ? 'bg-white dark:bg-white/10 text-neutral-900 dark:text-white shadow-xs font-semibold'
+                    ? 'bg-neutral-900 text-white dark:bg-[#C5A059] dark:text-black shadow-xs font-semibold'
                     : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
                 }`}
               >
@@ -52,7 +52,7 @@ export const ProjectsPage: React.FC = () => {
                   onClick={() => setSelectedFilter(filter.slug)}
                   className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-200 cursor-pointer ${
                     selectedFilter === filter.slug
-                      ? 'bg-white dark:bg-white/10 text-neutral-900 dark:text-white shadow-xs font-semibold'
+                      ? 'bg-neutral-900 text-white dark:bg-[#C5A059] dark:text-black shadow-xs font-semibold'
                       : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
                   }`}
                 >
@@ -72,11 +72,11 @@ export const ProjectsPage: React.FC = () => {
 
         {/* Secondary Drive Archive Link Notice (Discreet at the end) */}
         <div className="rounded-xl border border-neutral-200/90 dark:border-white/10 bg-neutral-50/60 dark:bg-[#12141C] p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-400">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[#C5A059] dark:text-[#ECC880]">
             <FolderArchive size={14} />
             <span>Archivos Históricos en la Nube</span>
           </div>
-          <h3 className="font-serif text-2xl font-bold text-neutral-900 dark:text-white">
+          <h3 className="font-sans text-2xl font-black tracking-tight text-neutral-900 dark:text-white">
             Repositorio en Google Drive
           </h3>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto font-normal">
@@ -89,7 +89,7 @@ export const ProjectsPage: React.FC = () => {
                 href={service.driveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-lg border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/5 hover:border-sky-500 text-neutral-800 dark:text-neutral-200 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-lg border border-neutral-300 dark:border-white/15 bg-white dark:bg-white/5 hover:border-[#C5A059] text-neutral-800 dark:text-neutral-200 transition-colors"
               >
                 <span>{service.shortTitle}</span>
                 <ExternalLink size={12} className="opacity-60" />

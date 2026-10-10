@@ -14,12 +14,12 @@ export const AboutPage: React.FC = () => {
 
         {/* Hero Section */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-sky-600 dark:text-sky-400 mb-3">
+          <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#C5A059] dark:text-[#ECC880] mb-3">
             <Compass size={14} />
             <span>Sobre el Estudio</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.08] mb-6 text-balance">
+          <h1 className="font-sans text-4xl sm:text-6xl font-black tracking-tight text-neutral-900 dark:text-white leading-[1.08] mb-6 text-balance">
             Elevamos la presencia visual de marcas a través del diseño y la narrativa.
           </h1>
 
@@ -40,7 +40,7 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
           <div className="md:col-span-5 space-y-6">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">
+            <h2 className="font-sans text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
               Criterio editorial aplicado a cada formato.
             </h2>
             <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
@@ -62,10 +62,10 @@ export const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 rounded-xl border border-neutral-200/80 dark:border-white/10 bg-white dark:bg-[#12141C]">
-              <div className="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-[#C5A059]/10 text-[#C5A059] dark:text-[#ECC880] flex items-center justify-center mb-4">
                 <Layers size={20} />
               </div>
-              <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white mb-2">
+              <h3 className="font-sans text-lg font-bold tracking-tight text-neutral-900 dark:text-white mb-2">
                 01. Claridad Conceptual
               </h3>
               <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
@@ -74,10 +74,10 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="p-6 rounded-xl border border-neutral-200/80 dark:border-white/10 bg-white dark:bg-[#12141C]">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-[#C5A059]/10 text-[#C5A059] dark:text-[#ECC880] flex items-center justify-center mb-4">
                 <Sparkles size={20} />
               </div>
-              <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white mb-2">
+              <h3 className="font-sans text-lg font-bold tracking-tight text-neutral-900 dark:text-white mb-2">
                 02. Rigor Estético
               </h3>
               <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
@@ -86,10 +86,10 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="p-6 rounded-xl border border-neutral-200/80 dark:border-white/10 bg-white dark:bg-[#12141C]">
-              <div className="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-[#C5A059]/10 text-[#C5A059] dark:text-[#ECC880] flex items-center justify-center mb-4">
                 <Video size={20} />
               </div>
-              <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white mb-2">
+              <h3 className="font-sans text-lg font-bold tracking-tight text-neutral-900 dark:text-white mb-2">
                 03. Calidad de Ejecución
               </h3>
               <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
@@ -98,10 +98,10 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="p-6 rounded-xl border border-neutral-200/80 dark:border-white/10 bg-white dark:bg-[#12141C]">
-              <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-[#C5A059]/10 text-[#C5A059] dark:text-[#ECC880] flex items-center justify-center mb-4">
                 <Globe size={20} />
               </div>
-              <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white mb-2">
+              <h3 className="font-sans text-lg font-bold tracking-tight text-neutral-900 dark:text-white mb-2">
                 04. Usabilidad Digital
               </h3>
               <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
@@ -112,8 +112,8 @@ export const AboutPage: React.FC = () => {
         </div>
 
         {/* CTA Banner */}
-        <div className="rounded-2xl border border-neutral-200/90 dark:border-white/10 bg-neutral-900 text-white p-8 sm:p-14 text-center max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-4">
+        <div className="rounded-2xl border border-neutral-200/90 dark:border-white/10 bg-[#111215] text-white p-8 sm:p-14 text-center max-w-4xl mx-auto">
+          <h2 className="font-sans text-3xl sm:text-4xl font-black tracking-tight mb-4 text-white">
             Construyamos juntos algo memorable
           </h2>
           <p className="text-sm sm:text-base text-neutral-300 max-w-xl mx-auto mb-8 font-normal">

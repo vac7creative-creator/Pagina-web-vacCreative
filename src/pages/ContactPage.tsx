@@ -23,15 +23,15 @@ export const ContactPage: React.FC = () => {
           {/* Main Direct Channels */}
           <div className="lg:col-span-7 space-y-6">
             {/* WhatsApp Featured Block */}
-            <div className="p-8 rounded-2xl border border-emerald-500/30 bg-emerald-50/30 dark:bg-emerald-950/10 space-y-4">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <div className="p-8 rounded-2xl border border-[#C5A059]/40 bg-[#121318] text-white shadow-xl space-y-4">
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#ECC880]">
+                <span className="w-2 h-2 rounded-full bg-[#ECC880] animate-pulse"></span>
                 <span>Canal Preferente</span>
               </div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">
+              <h2 className="font-sans text-2xl sm:text-3xl font-black tracking-tight text-white">
                 Atención Inmediata por WhatsApp
               </h2>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
+              <p className="text-sm text-neutral-300 leading-relaxed font-normal">
                 Comunícate directamente con nuestro equipo de atención y producción para respuestas ágiles, recepción de requerimientos y cotizaciones en el día.
               </p>
               <div className="pt-2">
@@ -41,7 +41,7 @@ export const ContactPage: React.FC = () => {
                   rel="noopener noreferrer"
                   variant="secondary"
                   size="lg"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2"
+                  className="gap-2"
                 >
                   <MessageCircle size={18} />
                   <span>Chatear ahora al +51 932 350 348</span>
@@ -52,10 +52,10 @@ export const ContactPage: React.FC = () => {
             {/* Telephone & Email Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="p-6 rounded-xl border border-neutral-200/90 dark:border-white/10 bg-white dark:bg-[#12141C] space-y-3">
-                <div className="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-[#C5A059]/10 text-[#C5A059] dark:text-[#ECC880] flex items-center justify-center">
                   <Phone size={18} />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white">
+                <h3 className="font-sans text-lg font-bold tracking-tight text-neutral-900 dark:text-white">
                   Líneas Telefónicas
                 </h3>
                 <p className="text-xs text-neutral-500">
@@ -66,7 +66,7 @@ export const ContactPage: React.FC = () => {
                     <a
                       key={i}
                       href={`tel:${phone.value}`}
-                      className="block text-neutral-800 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-400 transition-colors font-medium"
+                      className="block text-neutral-800 dark:text-neutral-200 hover:text-[#C5A059] dark:hover:text-[#ECC880] transition-colors font-medium"
                     >
                       {phone.display} <span className="text-xs text-neutral-400 font-sans">({phone.label})</span>
                     </a>
@@ -75,10 +75,10 @@ export const ContactPage: React.FC = () => {
               </div>
 
               <div className="p-6 rounded-xl border border-neutral-200/90 dark:border-white/10 bg-white dark:bg-[#12141C] space-y-3">
-                <div className="w-9 h-9 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-[#C5A059]/10 text-[#C5A059] dark:text-[#ECC880] flex items-center justify-center">
                   <Mail size={18} />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white">
+                <h3 className="font-sans text-lg font-bold tracking-tight text-neutral-900 dark:text-white">
                   Email Corporativo
                 </h3>
                 <p className="text-xs text-neutral-500">
@@ -87,7 +87,7 @@ export const ContactPage: React.FC = () => {
                 <div className="pt-2">
                   <a
                     href={`mailto:${CONTACT_DATA.email}`}
-                    className="block font-mono text-sm text-neutral-800 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-400 transition-colors font-medium break-all"
+                    className="block font-mono text-sm text-neutral-800 dark:text-neutral-200 hover:text-[#C5A059] dark:hover:text-[#ECC880] transition-colors font-medium break-all"
                   >
                     {CONTACT_DATA.email}
                   </a>
@@ -101,8 +101,8 @@ export const ContactPage: React.FC = () => {
             {/* Working Hours */}
             <div className="p-6 rounded-xl border border-neutral-200/90 dark:border-white/10 bg-neutral-50/70 dark:bg-[#12141C] space-y-4">
               <div className="flex items-center gap-3 text-neutral-900 dark:text-white">
-                <Clock size={18} className="text-sky-600 dark:text-sky-400" />
-                <h3 className="font-serif text-lg font-bold">Horarios de Trabajo</h3>
+                <Clock size={18} className="text-[#C5A059] dark:text-[#ECC880]" />
+                <h3 className="font-sans text-lg font-bold tracking-tight">Horarios de Trabajo</h3>
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal">
                 {CONTACT_DATA.workingHours}
@@ -114,7 +114,7 @@ export const ContactPage: React.FC = () => {
 
             {/* Social Networks List */}
             <div className="p-6 rounded-xl border border-neutral-200/90 dark:border-white/10 bg-white dark:bg-[#12141C] space-y-4">
-              <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white">
+              <h3 className="font-sans text-lg font-bold tracking-tight text-neutral-900 dark:text-white">
                 Redes Sociales & Canales
               </h3>
               <p className="text-xs text-neutral-500 font-normal">
@@ -127,9 +127,9 @@ export const ContactPage: React.FC = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-lg border border-neutral-100 dark:border-white/5 hover:border-sky-500/40 hover:bg-neutral-50 dark:hover:bg-white/5 transition-all text-sm group"
+                    className="flex items-center justify-between p-3 rounded-lg border border-neutral-100 dark:border-white/5 hover:border-[#C5A059]/40 hover:bg-neutral-50 dark:hover:bg-white/5 transition-all text-sm group"
                   >
-                    <span className="font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400">
+                    <span className="font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-[#C5A059] dark:group-hover:text-[#ECC880]">
                       {social.name}
                     </span>
                     <span className="inline-flex items-center gap-1 font-mono text-xs text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300">

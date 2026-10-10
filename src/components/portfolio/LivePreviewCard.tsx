@@ -68,7 +68,7 @@ export const LivePreviewCard: React.FC<LivePreviewCardProps> = ({ project, class
                 {!iframeLoaded && !iframeError && (
                   <div className="absolute inset-0 flex items-center justify-center bg-neutral-50 dark:bg-neutral-900 z-10">
                     <div className="flex flex-col items-center gap-2">
-                      <div className="w-6 h-6 border-2 border-sky-500 border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-6 h-6 border-2 border-[#C5A059] border-t-transparent rounded-full animate-spin"></div>
                       <span className="text-xs text-neutral-500 font-mono">Cargando sitio...</span>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ export const LivePreviewCard: React.FC<LivePreviewCardProps> = ({ project, class
                       href={project.previewUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-sky-600 text-white text-xs font-medium hover:bg-sky-700 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-neutral-900 dark:bg-[#C5A059] text-white dark:text-black text-xs font-semibold hover:bg-neutral-800 transition-colors"
                     >
                       <span>Abrir en pestaña nueva</span>
                       <ExternalLink size={13} />
@@ -112,7 +112,7 @@ export const LivePreviewCard: React.FC<LivePreviewCardProps> = ({ project, class
                     type="button"
                     onClick={handleReset}
                     title="Volver a la portada"
-                    className="hover:text-sky-400 p-1 cursor-pointer flex items-center gap-1.5"
+                    className="hover:text-[#ECC880] p-1 cursor-pointer flex items-center gap-1.5"
                   >
                     <RotateCcw size={11} />
                     <span>Cerrar preview</span>
@@ -157,7 +157,7 @@ export const LivePreviewCard: React.FC<LivePreviewCardProps> = ({ project, class
             {project.year && <span className="tabular-nums">{project.year}</span>}
           </div>
 
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-neutral-900 dark:text-white mb-2">
+          <h3 className="font-sans text-lg sm:text-xl font-bold tracking-tight text-neutral-900 dark:text-white mb-2">
             {project.title}
           </h3>
 
@@ -183,7 +183,7 @@ export const LivePreviewCard: React.FC<LivePreviewCardProps> = ({ project, class
             href={project.previewUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 font-medium transition-colors"
+            className="inline-flex items-center gap-1 text-[#C5A059] dark:text-[#ECC880] hover:text-[#A88238] dark:hover:text-[#F3D38D] font-semibold transition-colors"
           >
             <span>{isDesktop ? 'Abrir proyecto' : 'Ver proyecto completo'}</span>
             <ExternalLink size={13} />
