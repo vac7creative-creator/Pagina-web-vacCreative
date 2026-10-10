@@ -9,40 +9,45 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-neutral-200 dark:border-white/10 bg-white dark:bg-[#0B0D12] text-neutral-600 dark:text-neutral-400 transition-colors">
+    <footer className="border-t border-[#E7E1D4] dark:border-white/10 bg-[#FAF8F5] dark:bg-[#0B0C0F] text-neutral-600 dark:text-neutral-400 transition-colors">
       <Container size="wide" className="py-16 sm:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 pb-14 border-b border-neutral-200 dark:border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 pb-14 border-b border-[#E7E1D4] dark:border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-5">
-            <Link href="/" className="inline-flex items-center gap-3">
+            <Link href="/" className="inline-flex items-center gap-3 group">
               <img
                 src={CONTACT_DATA.logoUrl}
                 alt="V.A.C. Creative Logo"
-                className="h-10 w-auto object-contain"
+                className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="font-serif text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                V.A.C. <span className="font-sans font-light text-sky-600 dark:text-sky-400 text-lg">Creative</span>
-              </span>
+              <div className="flex flex-col">
+                <span className="font-sans text-2xl font-black tracking-tight text-neutral-900 dark:text-white leading-none">
+                  V.A.C<span className="text-[#C5A059]">.</span>
+                </span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[#C5A059] font-bold mt-0.5">
+                  CREATIVE
+                </span>
+              </div>
             </Link>
             <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 max-w-md font-normal">
               {CONTACT_DATA.description}
             </p>
-            <div className="text-xs text-neutral-500 pt-2">
+            <div className="text-xs text-neutral-500 font-mono pt-1">
               Horario de atención: {CONTACT_DATA.workingHours}
             </div>
           </div>
 
           {/* Services Column */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-900 dark:text-white mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-900 dark:text-white mb-4">
               Disciplinas
             </h3>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {SERVICES_DATA.map((service) => (
                 <li key={service.id}>
                   <Link
                     href={`/servicios/${service.slug}`}
-                    className="hover:text-neutral-950 dark:hover:text-white transition-colors"
+                    className="hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors"
                   >
                     {service.shortTitle}
                   </Link>
@@ -53,32 +58,32 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links Column */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-900 dark:text-white mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-900 dark:text-white mb-4">
               Estudio
             </h3>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
-                <Link href="/" className="hover:text-neutral-950 dark:hover:text-white transition-colors">
+                <Link href="/" className="hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors">
                   Inicio
                 </Link>
               </li>
               <li>
-                <Link href="/servicios" className="hover:text-neutral-950 dark:hover:text-white transition-colors">
+                <Link href="/servicios" className="hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors">
                   Todos los Servicios
                 </Link>
               </li>
               <li>
-                <Link href="/proyectos" className="hover:text-neutral-950 dark:hover:text-white transition-colors">
+                <Link href="/proyectos" className="hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors">
                   Proyectos Seleccionados
                 </Link>
               </li>
               <li>
-                <Link href="/nosotros" className="hover:text-neutral-950 dark:hover:text-white transition-colors">
+                <Link href="/nosotros" className="hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors">
                   Sobre Nosotros
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="hover:text-neutral-950 dark:hover:text-white transition-colors">
+                <Link href="/contacto" className="hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors">
                   Contacto Directo
                 </Link>
               </li>
@@ -87,15 +92,15 @@ export const Footer: React.FC = () => {
 
           {/* Direct Contact Column */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-900 dark:text-white mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-900 dark:text-white mb-4">
               Contacto
             </h3>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {CONTACT_DATA.phones.map((phone, i) => (
                 <li key={i}>
                   <a
                     href={`tel:${phone.value}`}
-                    className="hover:text-neutral-950 dark:hover:text-white transition-colors block"
+                    className="font-mono hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors block"
                   >
                     {phone.display}
                   </a>
@@ -104,13 +109,13 @@ export const Footer: React.FC = () => {
               <li>
                 <a
                   href={`mailto:${CONTACT_DATA.email}`}
-                  className="hover:text-neutral-950 dark:hover:text-white transition-colors block truncate"
+                  className="hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors block truncate font-mono text-xs"
                 >
                   {CONTACT_DATA.email}
                 </a>
               </li>
-              <li className="pt-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-neutral-900 dark:text-white block mb-2">
+              <li className="pt-3">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-900 dark:text-white block mb-2">
                   Redes Sociales
                 </span>
                 <div className="flex flex-wrap gap-3">
@@ -120,7 +125,7 @@ export const Footer: React.FC = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs text-neutral-600 dark:text-neutral-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+                      className="inline-flex items-center gap-1 text-xs text-neutral-600 dark:text-neutral-400 hover:text-[#C5A059] dark:hover:text-[#C5A059] transition-colors"
                     >
                       <span>{social.name}</span>
                       <ArrowUpRight size={12} className="opacity-60" />
@@ -133,11 +138,11 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 font-mono">
           <div>
             &copy; {currentYear} {CONTACT_DATA.studioName}. Todos los derechos reservados.
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 text-[11px]">
             <span>Diseño gráfico · Producción audiovisual · Experiencias web</span>
           </div>
         </div>

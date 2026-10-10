@@ -10,53 +10,57 @@ interface ServiceCategoryCardProps {
 
 export const ServiceCategoryCard: React.FC<ServiceCategoryCardProps> = ({ category }) => {
   const categoryUrl = `/servicios/${category.slug}`;
+  // Use category's subservice image or dedicated preview
+  const previewImage = category.subServices[0]?.image || category.heroImage;
 
   return (
     <Link
       href={categoryUrl}
-      className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-xl border border-neutral-200/90 dark:border-white/10 bg-white dark:bg-[#12141C] hover:border-sky-500/50 dark:hover:border-sky-400/40 transition-all duration-300 shadow-xs hover:shadow-md cursor-pointer overflow-hidden"
+      className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl border border-[#E7E1D4] dark:border-white/10 bg-white dark:bg-[#13141A] hover:border-[#C5A059] dark:hover:border-[#C5A059] transition-all duration-300 shadow-xs hover:shadow-xl cursor-pointer overflow-hidden min-h-[380px]"
     >
-      {/* Top Header: Number and Arrow */}
+      {/* Top Header: Number and Title */}
       <div>
-        <div className="flex items-center justify-between mb-6">
-          <span className="font-mono text-xs font-semibold text-sky-600 dark:text-sky-400 tabular-nums">
+        <div className="flex items-center justify-between mb-4">
+          <span className="font-mono text-xs font-bold text-[#C5A059] tabular-nums tracking-widest">
             {category.number}
           </span>
-          <div className="w-8 h-8 rounded-full border border-neutral-200 dark:border-white/10 flex items-center justify-center text-neutral-400 dark:text-neutral-500 group-hover:text-sky-600 dark:group-hover:text-sky-400 group-hover:border-sky-500/40 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-            <ArrowUpRight size={16} />
-          </div>
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500">
+            DISCIPLINA
+          </span>
         </div>
 
-        <h3 className="font-serif text-2xl font-bold tracking-tight text-neutral-900 dark:text-white mb-3 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+        <h3 className="font-sans text-xl sm:text-2xl font-black uppercase tracking-tight text-neutral-900 dark:text-white mb-3 group-hover:text-[#C5A059] transition-colors leading-tight">
           {category.title}
         </h3>
 
-        <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal mb-6">
+        <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal mb-5 line-clamp-3">
           {category.description}
         </p>
       </div>
 
-      {/* Bottom Subservices Preview List */}
-      <div className="pt-4 border-t border-neutral-100 dark:border-white/5">
-        <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-2">
-          Especialidades ({category.subServices.length})
-        </span>
-        <div className="flex flex-wrap gap-x-2 gap-y-1 text-xs text-neutral-600 dark:text-neutral-400">
-          {category.subServices.slice(0, 4).map((sub, idx) => (
-            <span key={sub.id} className="inline-flex items-center">
-              <span>{sub.title}</span>
-              {idx < Math.min(category.subServices.length - 1, 3) && (
-                <span className="ml-2 text-neutral-300 dark:text-neutral-700" aria-hidden="true">
-                  ·
-                </span>
-              )}
-            </span>
-          ))}
-          {category.subServices.length > 4 && (
-            <span className="text-neutral-400 dark:text-neutral-500 font-mono text-[11px]">
-              +{category.subServices.length - 4} más
-            </span>
-          )}
+      {/* Middle/Bottom: Visual Thumbnail & Subservices preview */}
+      <div className="space-y-4 pt-2">
+        {previewImage && (
+          <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-neutral-100 dark:bg-black/40 border border-neutral-100 dark:border-white/5">
+            <img
+              src={previewImage}
+              alt={category.title}
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity" />
+          </div>
+        )}
+
+        <div className="pt-3 border-t border-neutral-100 dark:border-white/5 flex items-center justify-between text-xs">
+          <span className="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">
+            {category.subServices.length} especialidades
+          </span>
+
+          <div className="w-8 h-8 rounded-full border border-neutral-200 dark:border-white/10 flex items-center justify-center text-neutral-700 dark:text-neutral-300 group-hover:bg-[#C5A059] group-hover:text-black group-hover:border-[#C5A059] transition-all duration-300">
+            <ArrowUpRight size={15} />
+          </div>
         </div>
       </div>
     </Link>
