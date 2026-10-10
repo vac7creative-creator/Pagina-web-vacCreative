@@ -154,3 +154,54 @@ export function getAvailableCategoryFilters(): { slug: string; name: string; cou
 
   return Array.from(categoryMap.values());
 }
+
+export interface DynamicProjectNavGroup {
+  categoryName: string;
+  categorySlug: string;
+  count: number;
+  types: {
+    title: string;
+    subServiceSlug: string;
+    count: number;
+    url: string;
+  }[];
+}
+
+/**
+ * Agrupa dinámicamente proyectos por categoría y subservicio para el menú desplegable del Header.
+ * Si se añaden proyectos futuros en otras áreas (diseño gráfico, audiovisual, spots, motion),
+ * aparecerán automáticamente sin tocar la cabecera.
+ */
+export function getDynamicProjectNavigation(): DynamicProjectNavGroup[] {
+  const map = new Map<string, DynamicProjectNavGroup>();
+
+  PORTFOLIO_PROJECTS.forEach((p) => {
+    let group = map.get(p.category);
+    if (!group) {
+      group = {
+        categoryName: p.category,
+        categorySlug: p.categorySlug,
+        count: 0,
+        types: [],
+      };
+      map.set(p.category, group);
+    }
+    group.count += 1;
+
+    let sub = group.types.find((t) => t.subServiceSlug === p.subServiceSlug);
+    if (!sub) {
+      // Map to service detail route if it corresponds to an existing subservice
+      const url = `/servicios/diseno-digital-y-experiencias-web/${p.subServiceSlug}`;
+      sub = {
+        title: p.subServiceTitle,
+        subServiceSlug: p.subServiceSlug,
+        count: 0,
+        url,
+      };
+      group.types.push(sub);
+    }
+    sub.count += 1;
+  });
+
+  return Array.from(map.values());
+}

@@ -34,7 +34,7 @@ export const ContactPage: React.FC = () => {
               <p className="text-sm text-neutral-300 leading-relaxed font-normal">
                 Comunícate directamente con nuestro equipo de atención y producción para respuestas ágiles, recepción de requerimientos y cotizaciones en el día.
               </p>
-              <div className="pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Button
                   href={getWhatsAppUrl()}
                   target="_blank"
@@ -44,8 +44,18 @@ export const ContactPage: React.FC = () => {
                   className="gap-2"
                 >
                   <MessageCircle size={18} />
-                  <span>Chatear ahora al +51 932 350 348</span>
+                  <span>Chatear al +51 932 350 348</span>
                 </Button>
+
+                <a
+                  href="https://gerente-creativo-de-vac.vercel.app/?tab=quote"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-[0.15em] transition-colors"
+                >
+                  <span>Cotizar con Gerente Creativo</span>
+                  <ArrowUpRight size={15} />
+                </a>
               </div>
             </div>
 

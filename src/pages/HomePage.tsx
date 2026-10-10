@@ -380,16 +380,26 @@ export const HomePage: React.FC = () => {
                   Tu proyecto también puede estar aquí. Cuéntame tu idea y la hacemos realidad. Evaluamos requerimientos técnicos y te proponemos la solución visual más adecuada.
                 </p>
 
-                {/* Heroic CTA Button (Reference: INICIAR CONVERSACIÓN →) */}
-                <div className="pt-2">
+                {/* Heroic CTA Buttons (Gerente Creativo Cotizador + WhatsApp) */}
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <a
+                    href="https://gerente-creativo-de-vac.vercel.app/?tab=quote"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 px-7 sm:px-9 py-4 rounded-xl bg-neutral-950 text-white hover:bg-black dark:bg-[#C5A059] dark:text-[#0B0C0F] dark:hover:bg-[#DDAF56] text-xs sm:text-sm font-black uppercase tracking-[0.18em] transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer"
+                  >
+                    <span>Cotizar Proyecto</span>
+                    <ArrowUpRight size={16} />
+                  </a>
+
                   <a
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 rounded-xl bg-neutral-950 text-white hover:bg-black dark:bg-[#C5A059] dark:text-[#0B0C0F] dark:hover:bg-[#DDAF56] text-xs sm:text-sm font-black uppercase tracking-[0.18em] transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer"
+                    className="inline-flex items-center gap-2.5 px-6 sm:px-8 py-4 rounded-xl border border-neutral-300 dark:border-white/15 bg-white/40 dark:bg-white/5 hover:bg-neutral-100 dark:hover:bg-white/10 text-neutral-900 dark:text-white text-xs sm:text-sm font-bold uppercase tracking-[0.16em] transition-all duration-300 cursor-pointer"
                   >
+                    <MessageCircle size={16} className="text-[#C5A059]" />
                     <span>Iniciar Conversación</span>
-                    <ArrowRight size={16} />
                   </a>
                 </div>
               </div>
